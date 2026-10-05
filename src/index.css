@@ -1,0 +1,60 @@
+@import "tailwindcss";
+
+@layer base {
+  body {
+    font-family: 'Quicksand', sans-serif;
+  }
+}
+
+.font-quicksand {
+  font-family: 'Quicksand', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
+}
+
+.font-nunito {
+  font-family: 'Nunito', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
+}
+
+.font-bevietnam {
+  font-family: 'Be Vietnam Pro', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
+}
+
+/* THEMES */
+/* 1. Sakura Pink (Default) */
+.theme-sakura {
+  --bg-main: #FFF5F7;
+  --bg-card: #FFFFFF;
+  --border-subtle: #FFCCD5;
+  --text-main: #4A3B43;
+  --text-muted: #8C6D7C;
+  --accent-btn: #FF85A1;
+}
+
+/* 2. Sweet Peach */
+.theme-sweet_peach {
+  --bg-main: #FFF7F2;
+  --bg-card: #FFFFFF;
+  --border-subtle: #FFD8C2;
+  --text-main: #4A3528;
+  --text-muted: #8C6D58;
+  --accent-btn: #FF9466;
+}
+
+/* 3. Lavender Dream */
+.theme-lavender {
+  --bg-main: #FAF5FF;
+  --bg-card: #FFFFFF;
+  --border-subtle: #E9D5FF;
+  --text-main: #3B284C;
+  --text-muted: #7E658F;
+  --accent-btn: #C084FC;
+}
+
+/* 4. Night Pastel (Dark Study Mode) */
+.theme-night_pastel {
+  --bg-main: #16131D;
+  --bg-card: #201C29;
+  --border-subtle: #3A3249;
+  --text-main: #F3E8FF;
+  --text-muted: #B8A8CC;
+  --accent-btn: #F472B6;
+}
