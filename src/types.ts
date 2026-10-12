@@ -81,13 +81,36 @@ export interface Appointment {
   dismissedAlert?: boolean;
 }
 
+export type SoundPreset = 
+  // Dịu dàng & Thư thái (Gentle)
+  | 'sweet' | 'gentle_chime' | 'zen_bell' | 'lofi_vibes' 
+  | 'harp_glissando' | 'ocean_waves_breeze' | 'rain_on_leaves' | 'tibetan_bowl_deep'
+  // Dễ thương & Nhí nhảnh (Cute)
+  | 'kawaii_twinkle' | 'cat_purr' | 'marimba' | 'birds' | 'bubble_pop'
+  | 'puppy_bark' | 'magic_fairy_wand' | 'music_box_lullaby' | 'baby_laugh_giggle' | 'game_coin_jump'
+  // Đơn giản & Tối giản (Simple)
+  | 'bell' | 'digital_beep' | 'soft_ping' | 'clock_tick'
+  | 'single_tone' | 'radar_pulse' | 'typewriter_bell' | 'metronome_wood'
+  // Mạnh mẽ & Quyết liệt (Powerful)
+  | 'urgent_alarm' | 'drum_roll' | 'arcade_fanfare' | 'super_loud_siren'
+  | 'electric_guitar_riff' | 'battle_horn' | 'emergency_buzzer' | 'epic_orchestra';
+
+export interface SoundInfo {
+  id: SoundPreset;
+  name: string;
+  category: 'gentle' | 'cute' | 'simple' | 'powerful';
+  categoryLabel: string;
+  icon: string;
+  description: string;
+}
+
 export interface AlarmItem {
   id: string;
   time: string; // "06:30"
   label: string;
   days: number[]; // [1,2,3,4,5]
   enabled: boolean;
-  soundType: 'sweet' | 'bell' | 'marimba' | 'birds';
+  soundType: SoundPreset;
   snoozeMinutes: number;
 }
 
@@ -122,7 +145,7 @@ export interface UserSettings {
   fontSize: 'sm' | 'md' | 'lg';
   fontFamily: 'quicksand' | 'nunito' | 'bevietnam';
   theme: 'sakura' | 'sweet_peach' | 'lavender' | 'night_pastel';
-  soundPreset: 'sweet' | 'bell' | 'marimba' | 'birds';
+  soundPreset: SoundPreset;
   timetableDecor: 'mimi_cats' | 'sparkles' | 'strawberries' | 'boba';
   pomodoroWork: number;       // default 25
   pomodoroBreak: number;      // default 5

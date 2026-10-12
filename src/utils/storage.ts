@@ -263,6 +263,96 @@ export const PET_CATALOG: PetItem[] = [
     starPrice: 500,
     description: 'Biểu tượng tối thượng vinh danh sinh viên kiên trì 30 ngày',
     svgLayer: 'honor_trophy'
+  },
+  {
+    id: 'detective_hat',
+    name: 'Mũ Thám Tử Sherlock',
+    type: 'hat',
+    icon: '🕵️',
+    requiredStreak: 8,
+    starPrice: 120,
+    description: 'Tập trung phá vỡ mọi bài toán hóc búa và đề thi khó',
+    svgLayer: 'detective_hat'
+  },
+  {
+    id: 'fox_ears',
+    name: 'Bờm Tai Cáo Cam Nhí Nhảnh',
+    type: 'hat',
+    icon: '🦊',
+    requiredStreak: 4,
+    starPrice: 55,
+    description: 'Bờm tai cáo thông minh lém lỉnh cho buổi học nhóm năng nổ',
+    svgLayer: 'fox_ears'
+  },
+  {
+    id: 'crystal_crown',
+    name: 'Vương Miện Kim Cương Tinh Xảo',
+    type: 'hat',
+    icon: '💎',
+    requiredStreak: 45,
+    starPrice: 700,
+    description: 'Phần thưởng danh giá đỉnh cao chuỗi 45 ngày kiên trì rực rỡ',
+    svgLayer: 'crystal_crown'
+  },
+  {
+    id: 'winter_scarf',
+    name: 'Khăn Quàng Cổ Ấm Áp',
+    type: 'accessory',
+    icon: '🧣',
+    requiredStreak: 5,
+    starPrice: 60,
+    description: 'Khăn len pastel giữ ấm cổ họng trong những ngày ôn thi trời lạnh',
+    svgLayer: 'winter_scarf'
+  },
+  {
+    id: 'stylish_shades',
+    name: 'Kính Râm Idol Siêu Ngầu',
+    type: 'accessory',
+    icon: '🕶️',
+    requiredStreak: 6,
+    starPrice: 80,
+    description: 'Tự tin 100% bước vào phòng thi và bảo vệ đồ án tốt nghiệp',
+    svgLayer: 'stylish_shades'
+  },
+  {
+    id: 'unicorn_wings',
+    name: 'Đôi Cánh Kỳ Lân Ánh Sáng',
+    type: 'accessory',
+    icon: '🦄',
+    requiredStreak: 60,
+    starPrice: 900,
+    description: 'Kỳ tích 60 ngày hoàn hảo, chấp cánh bay đến đỉnh vinh quang',
+    svgLayer: 'unicorn_wings'
+  },
+  {
+    id: 'study_lamp',
+    name: 'Đèn Bàn Cú Đêm Học Giỏi',
+    type: 'accessory',
+    icon: '💡',
+    requiredStreak: 12,
+    starPrice: 160,
+    description: 'Thắp sáng tri thức trong những đêm miệt mài nghiên cứu bài giảng',
+    svgLayer: 'study_lamp'
+  },
+  {
+    id: 'leather_notebook',
+    name: 'Sổ Tay Bìa Da Kỷ Yếu',
+    type: 'accessory',
+    icon: '📓',
+    requiredStreak: 15,
+    starPrice: 220,
+    description: 'Ghi lại mọi kiến thức quý giá và ước mơ tương lai đại học',
+    svgLayer: 'leather_notebook'
+  },
+  {
+    id: 'smart_thermos',
+    name: 'Bình Giữ Nhiệt Trà Thơm',
+    type: 'accessory',
+    icon: '🍶',
+    requiredStreak: 7,
+    starPrice: 90,
+    description: 'Trà nóng thanh lọc tinh thần giúp tỉnh táo suốt 4 tiết học liền',
+    svgLayer: 'smart_thermos'
   }
 ];
 

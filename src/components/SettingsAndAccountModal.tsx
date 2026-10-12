@@ -17,7 +17,7 @@ import {
   ShieldCheck
 } from 'lucide-react';
 import { UserAccount, UserSettings } from '../types';
-import { playChime } from '../utils/audio';
+import { playChime, SOUND_CATALOG } from '../utils/audio';
 
 interface SettingsAndAccountModalProps {
   isOpen: boolean;
@@ -52,6 +52,7 @@ export const SettingsAndAccountModal: React.FC<SettingsAndAccountModalProps> = (
   const [editUniversity, setEditUniversity] = useState(currentUser?.university || 'Đại Học');
   const [editMajor, setEditMajor] = useState(currentUser?.major || 'Sinh Viên');
   const [editAvatar, setEditAvatar] = useState(currentUser?.avatar || '🐰');
+  const [soundCategoryTab, setSoundCategoryTab] = useState<'all' | 'gentle' | 'cute' | 'simple' | 'powerful'>('all');
 
   if (!isOpen) return null;
 
@@ -248,34 +249,76 @@ export const SettingsAndAccountModal: React.FC<SettingsAndAccountModalProps> = (
                 </div>
               </div>
 
-              {/* Cài đặt âm thanh */}
-              <div>
-                <label className="block text-xs font-bold text-[#7D2E49] uppercase tracking-wider mb-2 flex items-center gap-1.5">
-                  <Volume2 className="w-3.5 h-3.5 text-[#FF85A1]" /> Cài Đặt Âm Thanh Theo Ý Muốn
-                </label>
-                <div className="grid grid-cols-2 sm:grid-cols-4 gap-2">
+              {/* Cài đặt âm thanh hệ thống (30 tiếng chuông) */}
+              <div className="space-y-3">
+                <div className="flex items-center justify-between flex-wrap gap-2">
+                  <label className="text-xs font-bold text-[#7D2E49] uppercase tracking-wider flex items-center gap-1.5">
+                    <Volume2 className="w-3.5 h-3.5 text-[#FF85A1]" /> Tiếng Chuông Mặc Định Toàn Hệ Thống (30 Âm Thanh)
+                  </label>
+                  <span className="text-[11px] font-bold text-[#D81B60] bg-[#FFE4E8] px-2.5 py-0.5 rounded-full">
+                    Đang dùng: {SOUND_CATALOG.find(s => s.id === settings.soundPreset)?.name || 'Chuông Ngọt'}
+                  </span>
+                </div>
+
+                {/* Categories */}
+                <div className="flex items-center gap-1.5 flex-wrap">
                   {[
-                    { id: 'sweet', label: 'Chuông Ngọt', sound: 'Celesta' },
-                    { id: 'bell', label: 'Chuông Kính', sound: 'Crystal Bell' },
-                    { id: 'marimba', label: 'Marimba Ấm', sound: 'Gỗ ấm áp' },
-                    { id: 'birds', label: 'Tiếng Chim Hót', sound: 'Thiên nhiên' }
-                  ].map((snd) => (
+                    { id: 'all', label: 'Tất cả (30)' },
+                    { id: 'gentle', label: '🌸 Dịu Dàng' },
+                    { id: 'cute', label: '✨ Dễ Thương' },
+                    { id: 'simple', label: '🔔 Đơn Giản' },
+                    { id: 'powerful', label: '⚡ Mạnh Mẽ' }
+                  ].map((cat) => (
                     <button
-                      key={snd.id}
-                      onClick={() => {
-                        onUpdateSettings({ soundPreset: snd.id as any });
-                        playChime(snd.id as any);
-                      }}
-                      className={`p-2.5 rounded-2xl border text-center transition ${
-                        settings.soundPreset === snd.id
-                          ? 'bg-[#FFF0F3] border-[#FF85A1] ring-2 ring-[#FFD1DC]'
-                          : 'bg-[#FFFDFE] border-[#FFE4E8]'
+                      key={cat.id}
+                      type="button"
+                      onClick={() => setSoundCategoryTab(cat.id as any)}
+                      className={`px-3 py-1 rounded-xl text-xs font-bold transition cursor-pointer ${
+                        soundCategoryTab === cat.id
+                          ? 'bg-[#FF85A1] text-white shadow-2xs'
+                          : 'bg-white text-[#7D2E49] border border-[#FFCCD5] hover:bg-[#FFF0F3]'
                       }`}
                     >
-                      <span className="text-xs font-bold text-[#4A3B43] block">🎵 {snd.label}</span>
-                      <span className="text-[10px] text-[#8C6D7C]">Bấm để nghe thử</span>
+                      {cat.label}
                     </button>
                   ))}
+                </div>
+
+                {/* Sounds grid */}
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 max-h-56 overflow-y-auto p-2 bg-[#FFFDFE] rounded-2xl border border-[#FFCCD5]">
+                  {SOUND_CATALOG.filter(s => soundCategoryTab === 'all' || s.category === soundCategoryTab).map((snd) => {
+                    const isSelected = settings.soundPreset === snd.id;
+
+                    return (
+                      <button
+                        key={snd.id}
+                        type="button"
+                        onClick={() => {
+                          onUpdateSettings({ soundPreset: snd.id });
+                          playChime(snd.id);
+                        }}
+                        className={`p-2.5 rounded-xl border text-left transition flex items-center justify-between gap-2 cursor-pointer ${
+                          isSelected
+                            ? 'bg-[#FFF0F3] border-[#FF85A1] ring-2 ring-[#FFD1DC]'
+                            : 'bg-white border-[#FFE4E8] hover:border-[#FFCCD5]'
+                        }`}
+                      >
+                        <div className="flex items-center gap-2 overflow-hidden">
+                          <span className="text-xl flex-shrink-0">{snd.icon}</span>
+                          <div className="overflow-hidden">
+                            <span className="text-xs font-bold text-[#4A3B43] block truncate">{snd.name}</span>
+                            <span className="text-[10px] text-[#8C6D7C] line-clamp-1">{snd.description}</span>
+                          </div>
+                        </div>
+
+                        <span className={`text-[10px] font-bold px-2 py-0.5 rounded-lg flex-shrink-0 ${
+                          isSelected ? 'bg-[#FF85A1] text-white' : 'bg-[#FFF5F7] text-[#D81B60]'
+                        }`}>
+                          {isSelected ? 'Đang chọn' : 'Nghe thử'}
+                        </span>
+                      </button>
+                    );
+                  })}
                 </div>
               </div>
             </div>

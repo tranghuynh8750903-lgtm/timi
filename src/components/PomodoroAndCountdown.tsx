@@ -14,12 +14,15 @@ import {
   Coffee 
 } from 'lucide-react';
 import confetti from 'canvas-confetti';
-import { Task, UserSettings } from '../types';
+import { Task, UserSettings, VirtualPet } from '../types';
 import { playChime, playSuccessSound, toggleAmbientRain } from '../utils/audio';
+import { MascotAvatar } from './CuteIllustrations';
 
 interface PomodoroAndCountdownProps {
   tasks: Task[];
   settings: UserSettings;
+  pet?: VirtualPet;
+  onOpenPetModal?: () => void;
   selectedTask?: Task | null;
   onCompletePomodoroSession: (focusMinutes: number) => void;
   onUpdateSettings: (newSettings: Partial<UserSettings>) => void;
@@ -28,6 +31,8 @@ interface PomodoroAndCountdownProps {
 export const PomodoroAndCountdown: React.FC<PomodoroAndCountdownProps> = ({
   tasks,
   settings,
+  pet,
+  onOpenPetModal,
   selectedTask,
   onCompletePomodoroSession,
   onUpdateSettings,
@@ -358,6 +363,40 @@ export const PomodoroAndCountdown: React.FC<PomodoroAndCountdownProps> = ({
             <p className="text-[10px] text-[#8C6D7C] mt-2 italic">
               * Mẹo sinh viên: Tỷ lệ 25/5 hoặc 50/10 giúp não bộ ghi nhớ sâu mà không bị quá tải.
             </p>
+          </div>
+        )}
+
+        {/* Pet Study Companion */}
+        {pet && (
+          <div 
+            onClick={onOpenPetModal}
+            className="mt-6 p-3 sm:p-4 rounded-3xl bg-white/90 border-2 border-[#FFD1DC] flex items-center justify-between gap-3 shadow-xs hover:border-[#FF85A1] hover:shadow-md transition cursor-pointer group max-w-md w-full text-left"
+            title={`Bấm để mở Thú Cưng ${pet.name}`}
+          >
+            <div className="flex items-center gap-3">
+              <div className="relative">
+                <MascotAvatar
+                  type={pet.type}
+                  mood={isRunning ? 'focused' : 'happy'}
+                  equippedHat={pet.equippedHat}
+                  equippedAccessory={pet.equippedAccessory}
+                  size={52}
+                />
+              </div>
+              <div>
+                <p className="text-xs sm:text-sm font-black text-[#D81B60] group-hover:underline flex items-center gap-1.5">
+                  <span>Bé {pet.name} {isRunning ? 'đang đồng hành cùng bạn tập trung! 🔥' : 'sẵn sàng vào guồng! ✨'}</span>
+                </p>
+                <p className="text-[11px] text-[#8C6D7C] mt-0.5">
+                  {isRunning 
+                    ? 'Kiên trì hoàn thành phiên để nhận thêm ⭐ Sao thưởng và EXP nhé!' 
+                    : 'Bấm để đổi tên, thay trang phục hoặc nhận thưởng chuỗi ngày.'}
+                </p>
+              </div>
+            </div>
+            <span className="text-xs text-[#FF85A1] font-bold hidden sm:inline group-hover:translate-x-1 transition">
+              →
+            </span>
           </div>
         )}
       </div>

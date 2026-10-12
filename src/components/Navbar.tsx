@@ -155,14 +155,14 @@ export const Navbar: React.FC<NavbarProps> = ({
 
         {/* Right: Virtual Pet Mini Widget + Alarms Bell + User Account & Switcher */}
         <div className="flex items-center gap-2 sm:gap-3 relative">
-          {/* Virtual Pet Mini pill (Streak & Stars) */}
+          {/* Virtual Pet Mini pill (Streak & Stars & Name) */}
           <button
             onClick={() => {
               playChime('sweet');
               onOpenPetModal();
             }}
-            className="px-2.5 sm:px-3 py-1.5 rounded-2xl bg-gradient-to-r from-[#FFF0F3] to-[#FFE8EE] border border-[#FFCCD5] hover:border-[#FF85A1] flex items-center gap-2 transition group shadow-2xs"
-            title="Mở Thú Cưng Ảo & Tủ Đồ Trang Phục"
+            className="px-2.5 sm:px-3 py-1.5 rounded-2xl bg-gradient-to-r from-[#FFF0F3] to-[#FFE8EE] border border-[#FFCCD5] hover:border-[#FF85A1] flex items-center gap-2 transition group shadow-2xs cursor-pointer"
+            title={`Bé ${pet.name} (Chuỗi ${pet.streak} ngày • ${pet.stars} Sao) - Bấm để đổi tên & nhận thưởng`}
           >
             <div className="relative -my-1">
               <MascotAvatar
@@ -173,6 +173,9 @@ export const Navbar: React.FC<NavbarProps> = ({
               />
             </div>
             <div className="flex items-center gap-1.5 text-xs font-bold">
+              <span className="hidden lg:inline text-[11px] text-[#7D2E49] max-w-[80px] truncate font-extrabold mr-0.5">
+                {pet.name}
+              </span>
               <span className="text-[#E65100] flex items-center gap-0.5" title={`Chuỗi ${pet.streak} ngày hoàn thành`}>
                 <Flame className="w-3.5 h-3.5 fill-current" />
                 <span>{pet.streak}d</span>

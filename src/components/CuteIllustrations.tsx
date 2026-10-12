@@ -293,6 +293,37 @@ export const MascotAvatar: React.FC<MascotProps> = ({
           </g>
         )}
 
+        {/* 11. Mũ Thám Tử Sherlock */}
+        {equippedHat === 'detective_hat' && (
+          <g id="hat-detective" transform="translate(24, 10)">
+            <path d="M 6 22 Q 26 2 46 22" fill="#8D6E63" stroke="#5D4037" strokeWidth="2" />
+            <path d="M 0 22 Q 26 14 52 22" stroke="#5D4037" strokeWidth="3" fill="none" strokeLinecap="round" />
+            <circle cx="26" cy="7" r="3" fill="#D7CCC8" />
+          </g>
+        )}
+
+        {/* 12. Bờm Tai Cáo Cam Nhí Nhảnh */}
+        {equippedHat === 'fox_ears' && (
+          <g id="hat-fox-ears" transform="translate(50, 24)">
+            <path d="M -24 4 Q 0 -6 24 4" stroke="#E65100" strokeWidth="3" fill="none" strokeLinecap="round" />
+            <polygon points="-18,2 -12,-16 -4,2" fill="#FF9800" stroke="#E65100" strokeWidth="2" />
+            <polygon points="-16,1 -12,-11 -7,1" fill="#FFF3E0" />
+            <polygon points="4,2 12,-16 18,2" fill="#FF9800" stroke="#E65100" strokeWidth="2" />
+            <polygon points="7,1 12,-11 16,1" fill="#FFF3E0" />
+          </g>
+        )}
+
+        {/* 13. Vương Miện Kim Cương Tinh Xảo */}
+        {equippedHat === 'crystal_crown' && (
+          <g id="hat-crystal" transform="translate(30, 8)">
+            <polygon points="4,18 10,4 20,12 30,4 36,18" fill="#E0F7FA" stroke="#00BCD4" strokeWidth="2" />
+            <rect x="2" y="18" width="36" height="5" rx="1.5" fill="#B2EBF2" stroke="#00BCD4" strokeWidth="1" />
+            <circle cx="10" cy="4" r="2.5" fill="#00E5FF" />
+            <circle cx="20" cy="12" r="3" fill="#E040FB" />
+            <circle cx="30" cy="4" r="2.5" fill="#00E5FF" />
+          </g>
+        )}
+
         {/* ================= ACCESSORIES & ITEMS LAYERS ================= */}
         {/* Cánh Thiên Thần Pastel (Vẽ sau lưng) */}
         {equippedAccessory === 'angel_wings' && (
@@ -432,6 +463,65 @@ export const MascotAvatar: React.FC<MascotProps> = ({
             <path d="M -16 16 Q 0 -6 16 16 Z" fill="#F8BBD0" stroke="#EC407A" strokeWidth="2" />
             <line x1="0" y1="16" x2="0" y2="40" stroke="#8D6E63" strokeWidth="2.5" strokeLinecap="round" />
             <path d="M 0 40 Q -4 44 -8 40" stroke="#8D6E63" strokeWidth="2.5" fill="none" />
+          </g>
+        )}
+
+        {/* 14. Khăn Quàng Cổ Ấm Áp */}
+        {equippedAccessory === 'winter_scarf' && (
+          <g id="acc-scarf" transform="translate(50, 68)">
+            <path d="M -22 -2 Q 0 8 22 -2 Q 24 6 0 10 Q -24 6 -22 -2 Z" fill="#FF80AB" stroke="#E91E63" strokeWidth="1.5" />
+            <rect x="6" y="4" width="8" height="14" rx="2" fill="#FF4081" />
+            <line x1="7" y1="18" x2="13" y2="18" stroke="#FFE4E8" strokeWidth="2" strokeDasharray="1,1" />
+          </g>
+        )}
+
+        {/* 15. Kính Râm Idol Siêu Ngầu */}
+        {equippedAccessory === 'stylish_shades' && (
+          <g id="acc-shades" transform="translate(50, 49)">
+            <polygon points="-24,-4 -4,-4 -6,6 -22,6" fill="#212121" stroke="#000" strokeWidth="1" />
+            <polygon points="4,-4 24,-4 22,6 6,6" fill="#212121" stroke="#000" strokeWidth="1" />
+            <line x1="-4" y1="-2" x2="4" y2="-2" stroke="#424242" strokeWidth="2" />
+            <line x1="-22" y1="-2" x2="-8" y2="4" stroke="#FFF" strokeWidth="1" opacity="0.6" />
+            <line x1="6" y1="-2" x2="20" y2="4" stroke="#FFF" strokeWidth="1" opacity="0.6" />
+          </g>
+        )}
+
+        {/* 16. Đôi Cánh Kỳ Lân Ánh Sáng */}
+        {equippedAccessory === 'unicorn_wings' && (
+          <g id="acc-unicorn-wings" transform="translate(50, 56)">
+            <path d="M -28 -4 Q -50 -30 -32 -46 Q -18 -32 -20 -12" fill="#E1F5FE" stroke="#81D4FA" strokeWidth="2.5" />
+            <path d="M 28 -4 Q 50 -30 32 -46 Q 18 -32 20 -12" fill="#E1F5FE" stroke="#81D4FA" strokeWidth="2.5" />
+            <path d="M -24 -2 Q -42 -22 -28 -34" stroke="#FF80AB" strokeWidth="1.5" fill="none" />
+            <path d="M 24 -2 Q 42 -22 28 -34" stroke="#FF80AB" strokeWidth="1.5" fill="none" />
+          </g>
+        )}
+
+        {/* 17. Đèn Bàn Cú Đêm Học Giỏi */}
+        {equippedAccessory === 'study_lamp' && (
+          <g id="acc-lamp" transform="translate(68, 54) scale(0.65)">
+            <path d="M 12 12 Q 18 4 24 10" stroke="#FFB300" strokeWidth="3" fill="none" />
+            <polygon points="18,6 30,12 24,18" fill="#FFF9C4" stroke="#F57F17" strokeWidth="1.5" />
+            <circle cx="28" cy="22" r="5" fill="#FFE082" opacity="0.6" />
+            <rect x="8" y="24" width="12" height="4" rx="2" fill="#757575" />
+          </g>
+        )}
+
+        {/* 18. Sổ Tay Bìa Da Kỷ Yếu */}
+        {equippedAccessory === 'leather_notebook' && (
+          <g id="acc-notebook" transform="translate(8, 62) scale(0.65)">
+            <rect x="2" y="4" width="20" height="26" rx="2" fill="#5D4037" stroke="#3E2723" strokeWidth="2" />
+            <line x1="8" y1="4" x2="8" y2="30" stroke="#8D6E63" strokeWidth="1.5" />
+            <line x1="12" y1="10" x2="18" y2="10" stroke="#D7CCC8" strokeWidth="1.5" />
+            <line x1="12" y1="15" x2="18" y2="15" stroke="#D7CCC8" strokeWidth="1.5" />
+          </g>
+        )}
+
+        {/* 19. Bình Giữ Nhiệt Trà Thơm */}
+        {equippedAccessory === 'smart_thermos' && (
+          <g id="acc-thermos" transform="translate(70, 60) scale(0.65)">
+            <rect x="6" y="8" width="14" height="24" rx="4" fill="#C8E6C9" stroke="#388E3C" strokeWidth="2" />
+            <rect x="8" y="2" width="10" height="6" rx="2" fill="#81C784" stroke="#388E3C" strokeWidth="1.5" />
+            <circle cx="13" cy="18" r="2.5" fill="#4CAF50" />
           </g>
         )}
       </svg>

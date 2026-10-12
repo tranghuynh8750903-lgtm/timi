@@ -578,6 +578,8 @@ export default function App() {
           <PomodoroAndCountdown
             tasks={tasks}
             settings={settings}
+            pet={pet}
+            onOpenPetModal={() => setIsPetModalOpen(true)}
             selectedTask={selectedTaskForPomodoro}
             onCompletePomodoroSession={handleCompletePomodoroSession}
             onUpdateSettings={(newSet) => setSettings(prev => ({ ...prev, ...newSet }))}

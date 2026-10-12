@@ -14,8 +14,8 @@ import {
   CalendarCheck,
   Tag
 } from 'lucide-react';
-import { ScheduleItem, Appointment, UserSettings } from '../types';
-import { playChime, playAlarmMelody } from '../utils/audio';
+import { ScheduleItem, Appointment, UserSettings, SoundPreset } from '../types';
+import { playChime, playAlarmMelody, SOUND_CATALOG } from '../utils/audio';
 
 interface ScheduleSectionProps {
   schedule: ScheduleItem[];
@@ -52,6 +52,7 @@ export const ScheduleSection: React.FC<ScheduleSectionProps> = ({
   const [schLocation, setSchLocation] = useState('');
   const [schSticker, setSchSticker] = useState('books');
   const [schAlertBefore, setSchAlertBefore] = useState<number>(30);
+  const [schSound, setSchSound] = useState<SoundPreset>('sweet');
 
   // Form states for appointment (Mốc thời gian / lịch hẹn)
   const [aptTitle, setAptTitle] = useState('');
@@ -87,11 +88,11 @@ export const ScheduleSection: React.FC<ScheduleSectionProps> = ({
       location: schLocation.trim(),
       sticker: schSticker,
       alertBefore: schAlertBefore,
-      reminderSound: 'sweet',
+      reminderSound: schSound,
       isBookmarked: true
     });
 
-    playChime('sweet');
+    playChime(schSound);
     setSchTitle('');
     setSchLocation('');
     setIsAddingSchedule(false);
@@ -289,6 +290,35 @@ export const ScheduleSection: React.FC<ScheduleSectionProps> = ({
                       <option value={0}>Đúng giờ</option>
                     </select>
                   </div>
+                </div>
+
+                <div className="flex items-center gap-2">
+                  <div className="flex-1">
+                    <label className="text-[10px] text-[#8C6D7C] block mb-0.5">Tiếng chuông báo</label>
+                    <select
+                      value={schSound}
+                      onChange={(e) => {
+                        const val = e.target.value as SoundPreset;
+                        setSchSound(val);
+                        playChime(val);
+                      }}
+                      className="w-full px-2.5 py-1.5 rounded-lg border border-[#FFCCD5] bg-white text-xs text-[#4A3B43] font-bold"
+                    >
+                      {SOUND_CATALOG.map((snd) => (
+                        <option key={snd.id} value={snd.id}>
+                          {snd.icon} {snd.name} ({snd.categoryLabel})
+                        </option>
+                      ))}
+                    </select>
+                  </div>
+                  <button
+                    type="button"
+                    onClick={() => playChime(schSound)}
+                    className="mt-4 px-2.5 py-1.5 rounded-lg bg-[#FFF0F3] border border-[#FFCCD5] text-[#D81B60] text-xs font-bold hover:bg-[#FFE4E8] transition flex items-center gap-1 cursor-pointer"
+                    title="Nghe thử tiếng chuông đã chọn"
+                  >
+                    <Volume2 className="w-3.5 h-3.5" /> Thử
+                  </button>
                 </div>
 
                 <div>

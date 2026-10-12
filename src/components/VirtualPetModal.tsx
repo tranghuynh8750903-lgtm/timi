@@ -34,7 +34,7 @@ interface VirtualPetModalProps {
   onUpdatePet: (updatedPet: Partial<VirtualPet>) => void;
 }
 
-// 8 Rich Milestone Rewards for Streak Accomplishment
+// 13 Rich Milestone Rewards for Streak Accomplishment
 interface MilestoneReward {
   streak: number;
   title: string;
@@ -51,8 +51,8 @@ const MILESTONE_REWARDS: MilestoneReward[] = [
     streak: 1,
     title: 'Quà Khởi Đầu Tân Sinh Viên',
     badge: '🌱',
-    starBonus: 25,
-    expBonus: 30,
+    starBonus: 30,
+    expBonus: 40,
     specialItemName: 'Nơ Hồng Pastel 🎀',
     specialItemId: 'pink_ribbon',
     desc: 'Hoàn thành ngày đầu tiên cùng TIMI'
@@ -61,8 +61,8 @@ const MILESTONE_REWARDS: MilestoneReward[] = [
     streak: 3,
     title: 'Hộp Quà Chăm Chỉ Học Tập',
     badge: '🎒',
-    starBonus: 45,
-    expBonus: 50,
+    starBonus: 60,
+    expBonus: 70,
     specialItemName: 'Mũ Cử Nhân Đại Học 🎓',
     specialItemId: 'student_cap',
     desc: 'Duy trì chuỗi 3 ngày liên tiếp'
@@ -71,8 +71,8 @@ const MILESTONE_REWARDS: MilestoneReward[] = [
     streak: 5,
     title: 'Hộp Quà Bứt Phá Deadline',
     badge: '⚡',
-    starBonus: 70,
-    expBonus: 80,
+    starBonus: 90,
+    expBonus: 100,
     specialItemName: 'Mũ Nồi Dâu Tây 🍓',
     specialItemId: 'strawberry_beret',
     desc: 'Vượt qua 5 ngày học tập chuyên cần'
@@ -81,8 +81,8 @@ const MILESTONE_REWARDS: MilestoneReward[] = [
     streak: 7,
     title: 'Hộp Quà 1 Tuần Kỷ Luật Vàng',
     badge: '✨',
-    starBonus: 100,
-    expBonus: 120,
+    starBonus: 130,
+    expBonus: 150,
     specialItemName: 'Vòng Thiên Thần Lấp Lánh ✨',
     specialItemId: 'angel_halo',
     desc: 'Đạt trọn vẹn 7 ngày không gián đoạn'
@@ -91,8 +91,8 @@ const MILESTONE_REWARDS: MilestoneReward[] = [
     streak: 10,
     title: 'Hộp Quà Thủ Khoa Ưu Tú',
     badge: '👑',
-    starBonus: 150,
-    expBonus: 180,
+    starBonus: 180,
+    expBonus: 220,
     specialItemName: 'Vương Miện Thủ Khoa 👑',
     specialItemId: 'royal_crown',
     desc: 'Kỷ luật thép của sinh viên xuất sắc'
@@ -101,8 +101,8 @@ const MILESTONE_REWARDS: MilestoneReward[] = [
     streak: 14,
     title: 'Hộp Quà Bậc Thầy Thời Gian',
     badge: '🪽',
-    starBonus: 220,
-    expBonus: 250,
+    starBonus: 250,
+    expBonus: 300,
     specialItemName: 'Cánh Thiên Thần Pastel 🪽',
     specialItemId: 'angel_wings',
     desc: '2 tuần làm chủ hoàn toàn thời gian biểu'
@@ -111,8 +111,8 @@ const MILESTONE_REWARDS: MilestoneReward[] = [
     streak: 21,
     title: 'Hộp Quà Thói Quen Vàng 21 Ngày',
     badge: '🧙‍♀️',
-    starBonus: 350,
-    expBonus: 400,
+    starBonus: 380,
+    expBonus: 450,
     specialItemName: 'Áo Choàng Phù Thủy Học Thuật 🧙‍♀️',
     specialItemId: 'wizard_cape',
     desc: 'Định hình thói quen thành công trọn đời'
@@ -125,23 +125,77 @@ const MILESTONE_REWARDS: MilestoneReward[] = [
     expBonus: 600,
     specialItemName: 'Cúp Vàng Danh Dự TIMI 🏆',
     specialItemId: 'honor_trophy',
-    desc: 'Mốc vinh danh cao quý nhất cho sự kiên trì'
+    desc: 'Mốc vinh danh cao quý nhất cho 1 tháng kiên trì'
+  },
+  {
+    streak: 45,
+    title: 'Hộp Quà Vương Giả Kim Cương',
+    badge: '💎',
+    starBonus: 700,
+    expBonus: 800,
+    specialItemName: 'Vương Miện Kim Cương Tinh Xảo 💎',
+    specialItemId: 'crystal_crown',
+    desc: '45 ngày ý chí phi thường vượt mọi bài thi'
+  },
+  {
+    streak: 60,
+    title: 'Hộp Quà Kỳ Tích Hai Tháng Vàng',
+    badge: '🦄',
+    starBonus: 900,
+    expBonus: 1000,
+    specialItemName: 'Đôi Cánh Kỳ Lân Ánh Sáng 🦄',
+    specialItemId: 'unicorn_wings',
+    desc: '2 tháng không ngừng bứt phá, tiến bước vào top sinh viên ưu tú'
+  },
+  {
+    streak: 75,
+    title: 'Hộp Quà Huân Chương Đại Học',
+    badge: '🎖️',
+    starBonus: 1100,
+    expBonus: 1200,
+    specialItemName: 'Kính Râm Idol Siêu Ngầu 🕶️',
+    specialItemId: 'stylish_shades',
+    desc: 'Bản lĩnh vững vàng trước đồ án và các kỳ thi căng thẳng'
+  },
+  {
+    streak: 90,
+    title: 'Hộp Quà Học Kỳ Vàng Rực Rỡ',
+    badge: '🌟',
+    starBonus: 1400,
+    expBonus: 1500,
+    specialItemName: 'Mũ Thám Tử Sherlock 🕵️',
+    specialItemId: 'detective_hat',
+    desc: '3 tháng trọn vẹn 1 học kỳ đại học mẫu mực xuất sắc'
+  },
+  {
+    streak: 100,
+    title: 'Đại Lễ Trăm Ngày Kỷ Luật Bất Bại',
+    badge: '🏛️',
+    starBonus: 2000,
+    expBonus: 2500,
+    specialItemName: 'Khăn Quàng Cổ Ấm Áp 🧣',
+    specialItemId: 'winter_scarf',
+    desc: 'Thành tựu huyền thoại 100 ngày kỷ luật thép đỉnh cao'
   }
 ];
 
-// Daily Lucky Wheel Prizes
+// Daily Lucky Wheel Prizes (12 Rich Prizes)
 const LUCKY_PRIZES = [
-  { label: '+20 ⭐', stars: 20, exp: 10, icon: '⭐', color: '#FFD54F' },
-  { label: 'Trà Sữa 🧋', stars: 15, exp: 25, happiness: 20, icon: '🧋', color: '#FFB74D' },
-  { label: '+35 ⭐', stars: 35, exp: 15, icon: '⭐', color: '#FFD54F' },
-  { label: 'Bánh Dâu 🍰', stars: 20, exp: 30, happiness: 25, icon: '🍰', color: '#FF80AB' },
-  { label: '+50 ⭐', stars: 50, exp: 20, icon: '🌟', color: '#FFCA28' },
-  { label: 'Kem Cá 🐟', stars: 25, exp: 35, happiness: 30, icon: '🐟', color: '#81C784' },
+  { label: '+25 ⭐', stars: 25, exp: 15, icon: '⭐', color: '#FFD54F' },
+  { label: 'Trà Sữa Trân Châu 🧋', stars: 20, exp: 30, happiness: 25, icon: '🧋', color: '#FFB74D' },
+  { label: '+40 ⭐', stars: 40, exp: 20, icon: '⭐', color: '#FFD54F' },
+  { label: 'Bánh Dâu Tây 🍰', stars: 25, exp: 35, happiness: 30, icon: '🍰', color: '#FF80AB' },
+  { label: '+60 ⭐', stars: 60, exp: 30, icon: '🌟', color: '#FFCA28' },
+  { label: 'Kem Cá Taiyaki 🐟', stars: 30, exp: 40, happiness: 35, icon: '🐟', color: '#81C784' },
+  { label: 'Cú Đêm Học Giỏi 🦉', stars: 50, exp: 60, happiness: 20, icon: '🦉', color: '#AB47BC' },
   { label: '+80 ⭐', stars: 80, exp: 50, icon: '💫', color: '#FFB300' },
-  { label: 'Hộp Quà Lớn 🎁', stars: 100, exp: 100, happiness: 40, icon: '🎁', color: '#E91E63' }
+  { label: 'Trà Đào Cam Sả 🍑', stars: 35, exp: 45, happiness: 35, icon: '🍑', color: '#FFA726' },
+  { label: 'Bingsu Xoài Tuyết 🍧', stars: 45, exp: 55, happiness: 40, icon: '🍧', color: '#4DD0E1' },
+  { label: '+120 ⭐', stars: 120, exp: 80, icon: '✨', color: '#FFB300' },
+  { label: 'Rương Kim Cương 💎', stars: 200, exp: 200, happiness: 50, icon: '💎', color: '#00E5FF' }
 ];
 
-// Treat Snack Items to Feed Pet
+// Treat Snack Items to Feed Pet (10 Delicious Treats)
 interface TreatItem {
   id: string;
   name: string;
@@ -188,6 +242,60 @@ const TREAT_ITEMS: TreatItem[] = [
     happinessBonus: 18,
     expBonus: 12,
     reactionMsg: 'Bánh cá nhân đậu đỏ thơm phức giòn rụm! Meo meo hạnh phúc quá! 🐟'
+  },
+  {
+    id: 'chocolate_bear_cake',
+    name: 'Bánh Gấu Chocolate',
+    icon: '🐻',
+    starCost: 14,
+    happinessBonus: 22,
+    expBonus: 16,
+    reactionMsg: 'Bánh gấu chocolate thơm béo ngậy! Bé cưng nạp 100% năng lượng yêu đời! 🍫'
+  },
+  {
+    id: 'peach_orange_tea',
+    name: 'Trà Đào Cam Sả',
+    icon: '🍑',
+    starCost: 16,
+    happinessBonus: 24,
+    expBonus: 18,
+    reactionMsg: 'Hương đào thơm mát giòn sần sật, giải nhiệt não bộ ôn thi cả ngày! 🍑'
+  },
+  {
+    id: 'student_ramen',
+    name: 'Mì Ramen Đêm Khuya',
+    icon: '🍜',
+    starCost: 18,
+    happinessBonus: 26,
+    expBonus: 20,
+    reactionMsg: 'Bát mì ramen nóng hổi cứu đói lúc 23h đêm chạy deadline! Ấm lòng sinh viên! 🍜'
+  },
+  {
+    id: 'strawberry_crepe',
+    name: 'Bánh Crepe Dâu Kem',
+    icon: '🥞',
+    starCost: 15,
+    happinessBonus: 20,
+    expBonus: 15,
+    reactionMsg: 'Lớp vỏ mềm tan hòa quyện cùng kem tươi dâu tây! Ngọt ngào say đắm! 🍓'
+  },
+  {
+    id: 'mango_bingsu',
+    name: 'Bingsu Xoài Tuyết',
+    icon: '🍧',
+    starCost: 20,
+    happinessBonus: 30,
+    expBonus: 25,
+    reactionMsg: 'Bingsu xoài tuyết mát lạnh đỉnh chóp! Sảng khoái tinh thần học tập gấp đôi! 🍧'
+  },
+  {
+    id: 'french_macaron',
+    name: 'Macaron Pháp 7 Màu',
+    icon: '🧁',
+    starCost: 22,
+    happinessBonus: 32,
+    expBonus: 28,
+    reactionMsg: 'Bánh macaron giòn xốp sang chảnh chuẩn phong cách hoàng gia Pháp! 🧁'
   }
 ];
 
@@ -204,6 +312,7 @@ export const VirtualPetModal: React.FC<VirtualPetModalProps> = ({
   // Rename pet feature states
   const [isRenaming, setIsRenaming] = useState(false);
   const [newPetName, setNewPetName] = useState(pet.name);
+  const [renameCategoryTab, setRenameCategoryTab] = useState<'cute' | 'student' | 'food'>('cute');
 
   // Daily spin wheel state
   const [isSpinning, setIsSpinning] = useState(false);
@@ -214,18 +323,20 @@ export const VirtualPetModal: React.FC<VirtualPetModalProps> = ({
   const todayStr = new Date().toISOString().split('T')[0];
   const hasSpunToday = pet.lastSpinDate === todayStr;
 
-  const cuteNameSuggestions = [
-    'Bé Mochi 🍡',
-    'Trà Sữa 🧋',
-    'Bắp Rang 🍿',
-    'Đậu Đậu 🫘',
-    'Bánh Bao 🥟',
-    'Thỏ Tuyết 🐰',
-    'Gấu Dâu 🍓',
-    'Pudding 🍮',
-    'Mimi 🐱',
-    'Cà Phê ☕'
-  ];
+  const CUTE_NAME_CATEGORIES = {
+    cute: {
+      label: '🌸 Dễ Thương',
+      names: ['Bé Mochi 🍡', 'Trà Sữa 🧋', 'Bánh Bao 🥟', 'Thỏ Tuyết 🐰', 'Miu Miu 🐱', 'Pudding 🍮', 'Bé Bơ 🥑', 'Dâu Tây 🍓']
+    },
+    student: {
+      label: '⚡ Sinh Viên & Học Bá',
+      names: ['Thủ Khoa Cưng 🎓', 'Chiến Thần Deadline ⚡', 'Giáo Sư Nhí 👓', 'Cú Đêm Học Giỏi 🦉', 'Bậc Thầy Pomodoro 🍅', 'Hiệp Sĩ Đồ Án 🛡️']
+    },
+    food: {
+      label: '🧋 Đồ Ăn & Nước Uống',
+      names: ['Bắp Rang Bơ 🍿', 'Đậu Đậu 🫘', 'Cà Phê Muối ☕', 'Kẹo Bông Gòn 🍧', 'Bánh Cá Taiyaki 🐟', 'Kem 7 Màu 🍦', 'Trà Đào Cam Sả 🍑']
+    }
+  };
 
   const motivationalQuotes = [
     'Meo! Hôm nay bạn học chăm chỉ quá, tớ rất tự hào về bạn! ✨',
@@ -481,50 +592,86 @@ export const VirtualPetModal: React.FC<VirtualPetModalProps> = ({
 
             {/* Rename Input Panel */}
             {isRenaming && (
-              <form onSubmit={handleSavePetName} className="w-full max-w-md p-3.5 rounded-2xl bg-white border-2 border-[#FF85A1] shadow-md mb-3 space-y-2.5 animate-fadeIn text-left">
-                <div className="flex items-center justify-between">
-                  <label className="text-xs font-bold text-[#D81B60] flex items-center gap-1">
-                    <Sparkles className="w-3.5 h-3.5" /> Đặt tên mới cho bé cưng:
+              <form onSubmit={handleSavePetName} className="w-full max-w-lg p-4 rounded-3xl bg-white border-2 border-[#FF85A1] shadow-lg mb-3 space-y-3 animate-fadeIn text-left">
+                <div className="flex items-center justify-between pb-1 border-b border-[#FFE4E8]">
+                  <label className="text-xs font-black text-[#D81B60] flex items-center gap-1.5">
+                    <Sparkles className="w-4 h-4 text-[#FF85A1]" /> Đặt tên mới cho bé cưng của bạn:
                   </label>
                   <button
                     type="button"
                     onClick={() => setIsRenaming(false)}
-                    className="text-gray-400 hover:text-gray-600 text-xs"
+                    className="text-gray-400 hover:text-gray-600 text-xs px-2 py-0.5 rounded-lg hover:bg-gray-100 transition cursor-pointer"
                   >
-                    Đóng
+                    Đóng ✕
                   </button>
                 </div>
 
-                <div className="flex gap-2">
-                  <input
-                    type="text"
-                    required
-                    maxLength={25}
-                    value={newPetName}
-                    onChange={(e) => setNewPetName(e.target.value)}
-                    placeholder="Nhập tên mới (VD: Bé Bắp, Miu Miu, Trà Sữa...)"
-                    className="flex-1 px-3 py-1.5 rounded-xl border border-[#FFCCD5] text-xs font-bold text-[#4A3B43] focus:ring-2 focus:ring-[#FF85A1] focus:outline-none"
-                  />
+                <div className="flex items-center gap-2 relative">
+                  <div className="relative flex-1">
+                    <input
+                      type="text"
+                      required
+                      maxLength={30}
+                      value={newPetName}
+                      onChange={(e) => setNewPetName(e.target.value)}
+                      placeholder="Nhập tên mới (VD: Bé Mochi, Trà Sữa, Thủ Khoa...)"
+                      className="w-full pl-3 pr-8 py-2 rounded-xl border border-[#FFCCD5] text-xs sm:text-sm font-bold text-[#4A3B43] focus:ring-2 focus:ring-[#FF85A1] focus:outline-none bg-[#FFFDFC]"
+                      autoFocus
+                    />
+                    {newPetName && (
+                      <button
+                        type="button"
+                        onClick={() => setNewPetName('')}
+                        className="absolute right-2.5 top-1/2 -translate-y-1/2 w-4 h-4 rounded-full bg-gray-200 text-gray-600 flex items-center justify-center text-[10px] hover:bg-gray-300 transition"
+                        title="Xóa trắng"
+                      >
+                        ✕
+                      </button>
+                    )}
+                  </div>
                   <button
                     type="submit"
-                    className="px-4 py-1.5 rounded-xl bg-gradient-to-r from-[#FF85A1] to-[#FFAAA6] text-white text-xs font-bold shadow-xs hover:opacity-95 transition cursor-pointer"
+                    className="px-4 py-2 rounded-xl bg-gradient-to-r from-[#FF85A1] to-[#FFAAA6] text-white text-xs sm:text-sm font-black shadow-xs hover:opacity-95 transition cursor-pointer flex items-center gap-1 flex-shrink-0"
                   >
-                    Lưu tên
+                    <Check className="w-4 h-4" />
+                    <span>Lưu tên</span>
                   </button>
                 </div>
 
-                {/* Suggestions tags */}
-                <div className="pt-1">
-                  <p className="text-[10px] text-[#8C6D7C] mb-1 font-semibold">Gợi ý tên dễ thương:</p>
+                <div className="flex items-center justify-between text-[11px] text-[#8C6D7C] px-0.5">
+                  <span>Tên hiển thị: <strong className="text-[#D81B60]">{newPetName || 'Chưa đặt'}</strong></span>
+                  <span>{newPetName.length}/30 ký tự</span>
+                </div>
+
+                {/* Suggestions categories & tags */}
+                <div className="pt-2 border-t border-[#FFF0F3] space-y-2">
                   <div className="flex items-center gap-1.5 flex-wrap">
-                    {cuteNameSuggestions.map((sug) => (
+                    <span className="text-[10px] text-[#8C6D7C] font-bold mr-1">Bộ gợi ý tên:</span>
+                    {(Object.keys(CUTE_NAME_CATEGORIES) as (keyof typeof CUTE_NAME_CATEGORIES)[]).map((catKey) => (
+                      <button
+                        key={catKey}
+                        type="button"
+                        onClick={() => setRenameCategoryTab(catKey)}
+                        className={`px-2.5 py-0.5 rounded-lg text-[10px] font-bold transition cursor-pointer ${
+                          renameCategoryTab === catKey
+                            ? 'bg-[#FF85A1] text-white shadow-2xs'
+                            : 'bg-[#FFF5F7] text-[#7D2E49] hover:bg-[#FFE4E8] border border-[#FFCCD5]'
+                        }`}
+                      >
+                        {CUTE_NAME_CATEGORIES[catKey].label}
+                      </button>
+                    ))}
+                  </div>
+
+                  <div className="flex items-center gap-1.5 flex-wrap max-h-24 overflow-y-auto">
+                    {CUTE_NAME_CATEGORIES[renameCategoryTab].names.map((sug) => (
                       <button
                         key={sug}
                         type="button"
-                        onClick={() => setNewPetName(sug.split(' ')[0] + ' ' + (sug.split(' ')[1] || ''))}
-                        className="px-2 py-0.5 rounded-lg bg-[#FFF5F7] hover:bg-[#FFE4E8] text-[10px] font-bold text-[#D81B60] border border-[#FFCCD5] transition cursor-pointer"
+                        onClick={() => setNewPetName(sug)}
+                        className="px-2.5 py-1 rounded-xl bg-[#FFF9FA] hover:bg-[#FFE4E8] hover:scale-105 active:scale-95 text-[11px] font-bold text-[#D81B60] border border-[#FFCCD5] transition cursor-pointer flex items-center gap-1 shadow-2xs"
                       >
-                        {sug}
+                        <span>{sug}</span>
                       </button>
                     ))}
                   </div>
